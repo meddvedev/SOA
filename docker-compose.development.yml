@@ -15,6 +15,9 @@ services:
       - pg_data:/var/lib/postgresql/data
     ports:
       - '5432:5432'
+  api:
+    restart: always
+    context: ./API/API/Dockerfile
 
 volumes:
   pg_data:
