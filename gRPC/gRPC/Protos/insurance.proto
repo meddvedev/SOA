@@ -11,10 +11,12 @@ service Insurance {
 message InsuranceListRequest {}
 
 message InsuranceListReply {
+    repeated InsuranceItem insurances = 1;
+}
+
+message InsuranceItem {
   string id = 1;
   string title = 2;
   string category = 3;
   int32 insurance_amount = 4;
 }
-
-
