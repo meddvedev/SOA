@@ -1,0 +1,20 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "gRPC";
+
+package insurance;
+
+service Insurance {
+  rpc InsuranceList (InsuranceListRequest) returns (InsuranceListReply);
+}
+
+message InsuranceListRequest {}
+
+message InsuranceListReply {
+  string id = 1;
+  string title = 2;
+  string category = 3;
+  int32 insurance_amount = 4;
+}
+
+
