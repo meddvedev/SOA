@@ -6,17 +6,28 @@ package insurance;
 
 service Insurance {
   rpc InsuranceList (InsuranceListRequest) returns (InsuranceListReply);
+  rpc AddInsurance (AddInsuranceRequest) returns (InsuranceItem);
 }
 
-message InsuranceListRequest {}
+message InsuranceListRequest {
+    string token = 1;
+}
+
+message AddInsuranceRequest {
+    string token = 1;
+    string id = 2;
+    string title = 3;
+    string category = 4;
+    int32 insurance_amount = 5;
+}
 
 message InsuranceListReply {
     repeated InsuranceItem insurances = 1;
 }
 
 message InsuranceItem {
-  string id = 1;
-  string title = 2;
-  string category = 3;
-  int32 insurance_amount = 4;
+    string id = 1;
+    string title = 2;
+    string category = 3;
+    int32 insurance_amount = 4;
 }
