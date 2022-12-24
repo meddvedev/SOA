@@ -1,15 +1,105 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:tax="clr-namespace:Tax"
     x:Class="Tax.IndexPage"
 >
 <ScrollView BackgroundColor="WhiteSmoke">
-    <Label
-        Text="Вы авторизовались"
-        FontSize="46"
-        HorizontalOptions="Center"
-    />
+    <VerticalStackLayout Padding="25, 0, 25, 0">
+        <Label
+            Margin="0, 35, 0, 35"
+            Text="Список страховых выплат"
+            FontSize="46"
+            HorizontalOptions="Center"
+        />
+        <Button
+            TranslationX="770"
+            TranslationY="-85"
+            WidthRequest="280"
+            FontSize="18"
+            Text="Создать страховую выплату"
+        />
+        <ListView x:Name="listViewm" ItemsSource="{Binding Insuance}">
+            <ListView.Header>
+                <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="0.8*" />
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="0.3*" />
+                </Grid.ColumnDefinitions>
+                    <Label Text="Наименование страховой выплаты"
+                           Padding="5"
+                           HorizontalOptions="Fill"
+                           Grid.Column="0"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"
+                    />
+                    <Label Text="Категория страховой выплаты"
+                           Padding="5"
+                           HorizontalOptions="Fill"
+                           Grid.Column="1"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"
+                    />
+                    <Label Text="Сумма страховой выплаты"
+                           Padding="5"
+                           HorizontalOptions="Fill"
+                           Grid.Column="2"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"
+                    />
+                    <Label Text="Дата создания"
+                           Padding="5"
+                           HorizontalOptions="Fill"
+                           Grid.Column="3"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"
+                    />
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="0.8*" />
+                                <ColumnDefinition Width="0.5*" />
+                                <ColumnDefinition Width="0.3*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
+                                   Text ="{Binding Title}"
+                                   HorizontalOptions="Fill"
+                                   HorizontalTextAlignment="Center"
+                                   Margin="1"
+                            />
+                            <Label Grid.Column="1"
+                                   Text ="{Binding Category}"
+                                   HorizontalOptions="Fill"
+                                   HorizontalTextAlignment="Center" Margin="1"
+                            />
+                            <Label Grid.Column="2"
+                                   Text ="{Binding InsuanceAmount}"
+                                   HorizontalOptions="Fill"
+                                   HorizontalTextAlignment="Center"
+                                   Margin="1"
+                            />
+                            <Label Grid.Column="3"
+                                   Text ="{Binding Date}"
+                                   HorizontalOptions="Fill"
+                                   HorizontalTextAlignment="Center"
+                                   Margin="1"
+                            />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
 </ScrollView>
 </ContentPage>
-
