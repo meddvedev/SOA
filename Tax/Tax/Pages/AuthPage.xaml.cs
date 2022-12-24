@@ -12,22 +12,23 @@ public partial class AuthPage : ContentPage
 
     private async void OnSignIn(System.Object sender, System.EventArgs e)
     {
-        var client = new HTTPClient.HTTPClient();
-        var email = Email.Text;
-        var password = Password.Text;
-        var credentials = new { email, password };
+        await Shell.Current.GoToAsync("//IndexPage");
 
-        Button.Opacity = 0.5;
-        Button.InputTransparent = true;
+        //var client = new HTTPClient.HTTPClient();
+        //var email = Email.Text;
+        //var password = Password.Text;
+        //var credentials = new { email, password };
 
-        var user = await client.PostAsync("http://localhost:5234/api/Auth/sign-in", JsonSerializer.Serialize(credentials));
+        //Button.Opacity = 0.5;
+        //Button.InputTransparent = true;
 
-        if (user != null)
-        {
-            await Shell.Current.GoToAsync("//IndexPage");
-        }
+        //var user = await client.PostAsync("http://localhost:5234/api/Auth/sign-in", JsonSerializer.Serialize(credentials));
 
-        Button.Opacity = 1;
-        Button.InputTransparent = false;
+        //if (user != null)
+        //{
+        //}
+
+        //Button.Opacity = 1;
+        //Button.InputTransparent = false;
     }
 }
